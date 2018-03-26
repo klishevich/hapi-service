@@ -1,0 +1,19 @@
+{
+  "name": "hapi-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "APP_MOCKS=1 NODE_ENV=localhost node ./server"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^7.2.0",
+    "hapi": "^17.2.3",
+    "hapi-pino": "^4.0.3",
+    "hoek": "^5.0.3",
+    "request": "^2.85.0"
+  }
+}
