@@ -1,5 +1,5 @@
 const appId = 'ona-ao-ui';
-const useMocks = process.env.APP_MOCKS == 1; // eslint-disable-line eqeqeq
+const useMocks = process.env.APP_MOCKS == 1; // eslint-disable-line
 const serviceHost = process.env.SERVICE_HOST || process.env.HOST || 'localhost';
 const balancerHost = process.env.BALANCER_HOST || serviceHost;
 
@@ -34,6 +34,11 @@ module.exports = {
         maskFields: []
     },
 
+    jwt: {
+        secret: 'NeverShareYourSecret',
+        expiresIn: 86400
+    },
+
     services: {
         sendPhone: {
             method: 'POST',
@@ -44,6 +49,10 @@ module.exports = {
             method: 'POST',
             path: '/send-sms',
             url: `http://${serviceHost}/ona-pipe-api/checkPhoneConfirm`
+        },
+        validateJwt: {
+            method: 'POST',
+            path: '/validate-jwt'
         }
     }
 };

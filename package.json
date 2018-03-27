@@ -4,15 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start-mock": "APP_MOCKS=1 NODE_ENV=localhost nodemon ./server",
-    "start": "APP_MOCKS=0 NODE_ENV=localhost HOST='ufrmstest1' nodemon ./server",
+    "start-mock": "APP_MOCKS=1 NODE_ENV=localhost nodemon ./src/server",
+    "start": "APP_MOCKS=0 NODE_ENV=localhost HOST='ufrmstest1' nodemon ./src/server",
     "lint": "eslint . --ext .js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "hapi": "^17.2.3",
+    "jsonwebtoken": "^8.2.0",
     "ufr-front-services": "0.0.12"
   },
   "devDependencies": {
