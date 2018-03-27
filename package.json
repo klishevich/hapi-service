@@ -5,15 +5,19 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "APP_MOCKS=1 NODE_ENV=localhost node ./server"
+    "start-mock": "APP_MOCKS=1 NODE_ENV=localhost nodemon ./server",
+    "start": "APP_MOCKS=0 NODE_ENV=localhost HOST='ufrmstest1' nodemon ./server",
+    "lint": "eslint . --ext .js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "boom": "^7.2.0",
     "hapi": "^17.2.3",
-    "hapi-pino": "^4.0.3",
-    "hoek": "^5.0.3",
-    "request": "^2.85.0"
+    "ufr-front-services": "0.0.12"
+  },
+  "devDependencies": {
+    "arui-presets": "^4.12.1",
+    "eslint": "^4.19.1",
+    "nodemon": "^1.17.2"
   }
 }

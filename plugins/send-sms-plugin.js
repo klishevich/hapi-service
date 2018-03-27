@@ -3,20 +3,19 @@ const handleError = require('ufr-front-services/lib/error-handler').default;
 
 const register = async (server, options) => {
     const { apiConfig, apiConfig: { method, path }, loggerConfig } = options;
-    // console.log('options', options);
 
     const handler = async (request) => {
-        console.log(1, request.headers);
-        console.log(2, request.payload);
         try {
-            const result = await serviceRequest(request, apiConfig, loggerConfig);
+            console.log(5, request.headers);
+            console.log(6, request.payload);
+            const { payload: { sms: password, ref: reference } } = request;
+            // TODO add babel and use spread operator
+            const newRequest = Object.assign({}, request, { payload: { password, reference } });
+            const result = await serviceRequest(newRequest, apiConfig, loggerConfig);
             console.log('result', result);
-            // throw new Error('sdfsdfsd');
             return result;
         } catch (e) {
             console.error('error ....', e.body);
-            // console.error(['error'], `send-phone-plugin. Error: ${e}`);
-            // return handleError(e);
         }
         return handleError();
     };
@@ -25,7 +24,7 @@ const register = async (server, options) => {
 };
 
 module.exports = {
-    name: 'send-phone',
+    name: 'send-sms',
     version: '1.0.0',
     register
 };
