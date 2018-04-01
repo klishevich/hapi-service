@@ -1,3 +1,6 @@
 module.exports = {
-    extends: require.resolve('arui-presets/eslint')
+  "extends": "airbnb-base",
+  rules: {
+    "comma-dangle": ["error", "never"]
+  }
 };

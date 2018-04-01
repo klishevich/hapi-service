@@ -2,22 +2,33 @@
   "name": "hapi-service",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/klishevich/hapi-service"
+  },
   "scripts": {
-    "start-mock": "APP_MOCKS=1 NODE_ENV=localhost nodemon ./src/server",
-    "start": "APP_MOCKS=0 NODE_ENV=localhost HOST='ufrmstest1' nodemon ./src/server",
-    "lint": "eslint . --ext .js"
+    "start-real": "APP_MOCKS=0 NODE_ENV=localhost SERVICE_HOST=ufrmstest1 node ./.build/server",
+    "start": "NODE_ENV=localhost APP_MOCKS=1 node ./.build/server",
+    "lint": "eslint . --ext .js",
+    "lint-fix": "eslint . --ext .js --fix",
+    "build:dev": "webpack --config webpack.config.js --mode development --env.development --progress",
+    "build": "webpack --config webpack.config.js --mode production --env.production --progress",
+    "docker-build": "./docker-build.sh $npm_package_name $npm_package_version"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "hapi": "^17.2.3",
     "jsonwebtoken": "^8.2.0",
+    "nock": "^9.2.3",
     "ufr-front-services": "0.0.12"
   },
   "devDependencies": {
-    "arui-presets": "^4.12.1",
     "eslint": "^4.19.1",
-    "nodemon": "^1.17.2"
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "webpack": "^4.3.0",
+    "webpack-cli": "^2.0.13"
   }
 }
