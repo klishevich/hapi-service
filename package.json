@@ -8,12 +8,12 @@
     "url": "https://github.com/klishevich/hapi-service"
   },
   "scripts": {
-    "start-real": "APP_MOCKS=0 NODE_ENV=localhost SERVICE_HOST=ufrmstest1 node ./.build/server",
-    "start": "NODE_ENV=localhost APP_MOCKS=1 node ./.build/server",
+    "start": "APP_MOCKS=0 NODE_ENV=localhost SERVICE_HOST=ufrmstest1 node ./.build/server",
+    "start:dev": "NODE_ENV=localhost APP_MOCKS=1 node ./.build/server",
     "lint": "eslint . --ext .js",
     "lint-fix": "eslint . --ext .js --fix",
-    "build:dev": "webpack --config webpack.config.js --mode development --env.development --progress",
     "build": "webpack --config webpack.config.js --mode production --env.production --progress",
+    "build:dev": "webpack --config webpack.config.js --mode development --env.development --progress",
     "docker-build": "./docker-build.sh $npm_package_name $npm_package_version"
   },
   "author": "",

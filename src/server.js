@@ -6,6 +6,7 @@ const init = async () => {
   console.log('process.env.NODE_ENV', process.env.NODE_ENV); // eslint-disable-line
   console.log('process.env.PROD_BUILD', process.env.PROD_BUILD); // eslint-disable-line
   console.log('process.env.SERVICE_HOST', process.env.SERVICE_HOST); // eslint-disable-line
+  console.log('process.env.APP_MOCKS', process.env.APP_MOCKS); // eslint-disable-line
   const config = getConfig(
     process.env.APP_MOCKS,
     process.env.SERVICE_HOST,
