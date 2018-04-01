@@ -8,8 +8,9 @@
     "url": "https://github.com/klishevich/hapi-service"
   },
   "scripts": {
-    "start": "APP_MOCKS=0 NODE_ENV=localhost SERVICE_HOST=ufrmstest1 node ./.build/server",
+    "start:prod": "APP_MOCKS=0 NODE_ENV=localhost SERVICE_HOST=ufrmstest1 node ./.build/server",
     "start:dev": "NODE_ENV=localhost APP_MOCKS=1 node ./.build/server",
+    "start": "npm run build:dev && npm run start:dev",
     "lint": "eslint . --ext .js",
     "lint-fix": "eslint . --ext .js --fix",
     "build": "webpack --config webpack.config.js --mode production --env.production --progress",
@@ -19,10 +20,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "hapi": "^17.2.3",
     "jsonwebtoken": "^8.2.0",
-    "nock": "^9.2.3",
-    "ufr-front-services": "0.0.12"
+    "nock": "^9.2.3"
   },
   "devDependencies": {
     "eslint": "^4.19.1",

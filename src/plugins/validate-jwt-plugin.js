@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import handleError from 'ufr-front-services/lib/error-handler';
+import { HTTP_ERROR_400 } from '../constants';
 
 const register = async (server, options) => {
   const {
@@ -10,12 +10,12 @@ const register = async (server, options) => {
     try {
       const { payload: { token } } = request;
       const data = jwt.verify(token, secret);
-            console.log(['info'], `validate-jwt-plugin. Data: ${JSON.stringify(data)}`); // eslint-disable-line
+      console.log(['info'], `validate-jwt-plugin. Data: ${JSON.stringify(data)}`); // eslint-disable-line no-console
       return data;
     } catch (e) {
-            console.error('!!! error', e); // eslint-disable-line
+      console.error('!!! error', e); // eslint-disable-line no-console
+      return HTTP_ERROR_400;
     }
-    return handleError();
   };
 
   server.route({ method, path, handler });

@@ -1,6 +1,6 @@
 import Hapi from 'hapi';
 import getPlugins from './plugins';
-import getConfig from '../config';
+import getConfig from '../config/config';
 
 const init = async () => {
   console.log('process.env.NODE_ENV', process.env.NODE_ENV); // eslint-disable-line

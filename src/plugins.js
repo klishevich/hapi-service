@@ -3,6 +3,7 @@ import sendSms from './plugins/send-sms-plugin';
 import validateJwt from './plugins/validate-jwt-plugin';
 
 const getPlugins = (config) => {
+  // eslint-disable-next-line no-unused-vars
   const loggerConfig = {
     appId: config.appId,
     devtools: config.devtools,
@@ -14,15 +15,13 @@ const getPlugins = (config) => {
     {
       plugin: sendPhone,
       options: {
-        apiConfig: config.services.sendPhone,
-        loggerConfig
+        apiConfig: config.services.sendPhone
       }
     },
     {
       plugin: sendSms,
       options: {
         apiConfig: config.services.sendSms,
-        loggerConfig,
         jwtConfig: config.jwt
       }
     },
