@@ -8,7 +8,11 @@ const register = async (server, options) => {
     try {
       console.log('headers', request.headers); // eslint-disable-line no-console
       console.log('payload', request.payload); // eslint-disable-line no-console
-      const result = await axios({ method, url, data: request.payload });
+      const result = await axios({ method, url, data: request.payload })
+        // .finally((res) => {
+        //   console.log(res);
+        //   return res;
+        // });
       return result.data;
     } catch (e) {
       console.error('!!! error', e); // eslint-disable-line no-console

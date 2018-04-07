@@ -11,10 +11,12 @@
     "start:prod": "APP_MOCKS=0 NODE_ENV=localhost SERVICE_HOST=ufrmstest1 node ./.build/server",
     "start:dev": "NODE_ENV=localhost APP_MOCKS=1 node ./.build/server",
     "start": "npm run build:dev && npm run start:dev",
+    "start-babel": "NODE_ENV=localhost APP_MOCKS=1 node ./.build-babel/src/server",
     "lint": "eslint . --ext .js",
     "lint-fix": "eslint . --ext .js --fix",
     "build": "webpack --config webpack.config.js --mode production --env.production --progress",
     "build:dev": "webpack --config webpack.config.js --mode development --env.development --progress",
+    "build-babel": "rimraf .build-babel/ && babel ./config --out-dir .build-babel/config/ --copy-files && babel ./src --out-dir .build-babel/src/ --copy-files",
     "docker-build": "./docker-build.sh $npm_package_name $npm_package_version"
   },
   "author": "",
@@ -26,9 +28,12 @@
     "nock": "^9.2.3"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
+    "rimraf": "^2.6.2",
     "webpack": "^4.3.0",
     "webpack-cli": "^2.0.13"
   }
